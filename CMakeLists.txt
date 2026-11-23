@@ -8,3 +8,4 @@ enable_testing()
 
 add_subdirectory(libs/libmath)
 add_subdirectory(libs/libutil)
+add_subdirectory(third_party)
