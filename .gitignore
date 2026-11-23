@@ -1,0 +1,10 @@
+build/
+dist/
+*.tar.gz
+*.sha256
+app/buildinfo.h
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+.DS_Store
