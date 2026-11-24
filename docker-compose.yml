@@ -1,0 +1,25 @@
+services:
+  jenkins:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.jenkins
+    container_name: cm-jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+
+  nexus:
+    image: sonatype/nexus3
+    container_name: cm-nexus
+    ports:
+      - "8081:8081"
+    environment:
+      # Limits memory for a laptop. Delete this line if you have 16 GB+ RAM.
+      - INSTALL4J_ADD_VM_PARAMS=-Xms1g -Xmx1g -XX:MaxDirectMemorySize=1g
+    volumes:
+      - nexus_data:/nexus-data
+
+volumes:
+  jenkins_home:
+  nexus_data:
